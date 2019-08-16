@@ -6,16 +6,15 @@ namespace factorial
     {
         static void Main(string[] args)
         {
-            int ciclenum = 10;
-            int x = 5;
-            int fact = 1;
+            int x = Convert.ToInt32(Console.ReadLine());
+            int g = 1;
 
-            for (int i = x; i <= ciclenum; i++)
+            for (int i = 1; x >= i; ++i)
             {
-                fact = fact * i;
+                g = g * i;
             }
 
-            Console.WriteLine("Факториал от " + x + " до " + ciclenum + " = " + fact);
+            Console.WriteLine("Факториал введенного числа равен: " + g);
             Console.ReadLine();
         }
     }
