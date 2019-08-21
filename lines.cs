@@ -7,12 +7,15 @@ namespace lines
     {
         static void Main(string[] args)
         {
-            string data = "zero, one, zero, Jack, one, superUser";
-            var result = data.Split(new[] { ' ', ',', '.', '!', '?' }, StringSplitOptions.RemoveEmptyEntries) // возвращаем массив подстрок в этой строке, также здесь задаем какие символы убираем из вывода
-                .GroupBy(x => x) // группировка по заданным параметрам
-                .Where(x => x.Count() == 1) // фильтр выборки
-                .Select(x => x.Key); // проекция выбранных значений
-            foreach (var item in result) Console.Write(item + " "); 
+            var words = "zero one zero jack one superuser";
+
+            Console.WriteLine($"В введенной строке: \"words\",\n");
+
+            foreach (var group in words.Split(' ').GroupBy(word => word))
+            {
+                Console.WriteLine($"Слово '{group.Key}' повторилось {group.Count()} раз");
+            }
+
             Console.ReadLine();
         }
     }
